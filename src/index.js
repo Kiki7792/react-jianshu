@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './assets/iconfont/iconfont.css'
 import { GlobalStyle } from './style.js';
 import App from './App';
 
