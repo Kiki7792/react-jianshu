@@ -56,7 +56,10 @@ export const SearchWrapper = styled.div`
     line-height: 30px;
     border-radius: 50%;
     text-align: center;
-    // background: #969696;
+    &.focused {
+      color: #fff;
+      background: #969696;
+    }
   }
 `
 
@@ -66,16 +69,40 @@ export const NavSearch = styled.input.attrs({
   width: 160px;
   height: 38px;
   margin: 9px 0px 0px 20px;
-  padding: 0 20px;
+  padding: 0 30px 0 20px;
   box-sizing: border-box;
   border: none;
   outline: none;
   border-radius: 19px;
   background: #eee;
   font-size: 14px;
+  color: #666;
+  // transition: all 0.5s ease-out;
   &::placeholder {
     color: #999;
   }
+
+  &.focused {
+    width: 240px;
+    // transition: all 0.5s ease-in;
+  }
+
+  // 使用 react-transition-group - CSSTransition
+  &.slide-enter {
+    transition: all 0.2s ease-out;
+  }
+  
+  // &.slide-enter-active {
+  //   width: 240px;
+  // }
+  
+  &.slide-exit {
+    transition: all 0.2s ease-out;
+  }
+
+  // &.slide-exit-active {
+  //   width: 160px;
+  // }
 `
 
 export const Addition = styled.div`
