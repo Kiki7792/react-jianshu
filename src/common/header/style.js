@@ -104,6 +104,80 @@ export const NavSearch = styled.input.attrs({
   //   width: 160px;
   // }
 `
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 20px;
+  top: 56px;
+  height: 56px;
+  width: 240px;
+  box-sizing: border-box;
+  height: auto;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  &::before {
+    display: block;
+    content: '';
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #999;
+    opacity: 20%;
+    
+    /* 定位 */
+    position: absolute;
+    left: 20%;
+    top: -8%;
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    
+    /* 定位 */
+    position: absolute;
+    left: 20%;
+    top: -7%;
+  }
+`
+
+export const SearchInfoTitle = styled.div`
+  margin: 20px auto 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`
+
+export const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+  .spin {
+    display: inline-block;
+    margin-right: 2px;
+    transition: all 0.2s ease-in;
+    transform-origin: center center;
+  }
+`
+
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`
+
+export const SearchInfoItem = styled.a`
+  display: block;
+  float: left;
+  margin: 0 10px 10px 0;
+  padding: 0 5px;
+  line-height: 20px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #787878;
+`
+
 
 export const Addition = styled.div`
   position: absolute;
