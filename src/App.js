@@ -1,23 +1,9 @@
-import { React, Component } from 'react'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import store from './store';
 import Header from "./common/header";
-
-class Home extends Component {
-  render() {
-    return (
-      <div>home</div>
-    )
-  }
-}
-class Detail extends Component {
-  render() {
-    return (
-      <div>detail</div>
-    )
-  }
-}
+import Home from './pages/home'
+import Detail from './pages/detail'
 
 function App() {
   return (
