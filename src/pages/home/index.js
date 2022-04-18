@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Topic from './components/Topic'
 import List from './components/List'
 import Recommend from './components/Recommend'
+import Download from './components/Download'
 import Writer from './components/Writer'
 
 import {
@@ -25,6 +26,7 @@ class Home extends Component {
         </HomeLeft>
         <HomeRight>
           <Recommend />
+          <Download />
           <Writer />
         </HomeRight>
       </HomeWrapper>
