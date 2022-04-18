@@ -114,6 +114,8 @@ export const SearchInfo = styled.div`
   height: auto;
   padding: 0 20px;
   box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  background: #fff;
+
   &::before {
     display: block;
     content: '';
@@ -125,7 +127,7 @@ export const SearchInfo = styled.div`
     /* 定位 */
     position: absolute;
     left: 20%;
-    top: -8%;
+    top: -5%;
   }
 
   &::after {
@@ -138,7 +140,7 @@ export const SearchInfo = styled.div`
     /* 定位 */
     position: absolute;
     left: 20%;
-    top: -7%;
+    top: -4%;
   }
 `
 
