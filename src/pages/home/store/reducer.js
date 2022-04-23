@@ -1,10 +1,14 @@
 import { fromJS } from 'immutable'
-import { INIT_HOME_DATA } from './actionTypes'
+import {
+  INIT_HOME_DATA,
+  ADD_ARTICLE_LIST
+} from './actionTypes'
 const defaultState = fromJS({
   topicList: [],
   articleList: [],
   recommendList: [],
-  writerList: []
+  writerList: [],
+  articlePage: 1
 })
 
 const reducer = (state = defaultState, action) => {
@@ -16,6 +20,16 @@ const reducer = (state = defaultState, action) => {
         recommendList: fromJS(action.recommendList),
         writerList: fromJS(action.writerList),
       })
+
+    case ADD_ARTICLE_LIST:
+      return state.merge({
+        articleList: state.get('articleList').concat(action.list),
+        articlePage: action.nextPage
+      })
+      // return state.set(
+      //   'articleList',
+      //   state.get('articleList').concat(action.list)
+      // )
 
     default:
       return state
