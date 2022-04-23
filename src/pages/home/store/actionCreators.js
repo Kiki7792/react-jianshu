@@ -1,0 +1,23 @@
+import axios from 'axios'
+import * as actionTypes from './actionTypes'
+
+const changeHomeData = (data) => ({
+  type: actionTypes.INIT_HOME_DATA,
+  topicList: data.topicList,
+  articleList: data.articleList,
+  recommendList: data.recommendList,
+  writerList: data.writerList
+})
+export const getHomeInfo = () => {
+  return dispatch => {
+    axios.get('/api/home.json').then(res => {
+      const { success, data } = res.data
+      if (success) {
+        const action = changeHomeData(data)
+        dispatch(action)
+      }
+    }).catch(err => {
+      console.log('err--', err)
+    })
+  }
+}

@@ -1,82 +1,25 @@
 import { fromJS } from 'immutable'
-
+import { INIT_HOME_DATA } from './actionTypes'
 const defaultState = fromJS({
-  topicList: [
-    {
-      id: 1,
-      title: '社会热点',
-      imgUrl: '//upload.jianshu.io/users/upload_avatars/17864223/cd083a11-5848-4610-b802-d6fc8941d0ef.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/100/h/100/format/webp'
-    },
-    {
-      id: 2,
-      title: '省会',
-      imgUrl: '//upload.jianshu.io/users/upload_avatars/17864223/cd083a11-5848-4610-b802-d6fc8941d0ef.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/100/h/100/format/webp'
-    }
-  ],
-  articleList: [
-    {
-      id: 1,
-      title: '这是什么东西呢？',
-      desc: '果园里，果树刚剪过枝，大大小小的枝杈随意堆放在果树趟子里。时令尚早，上一年的枯叶和杂草依然铺陈在大地上，新的草芽还在土层里蓄势待发。',
-      imgUrl: '//upload.jianshu.io/users/upload_avatars/17864223/cd083a11-5848-4610-b802-d6fc8941d0ef.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/100/h/100/format/webp'
-    },
-    {
-      id: 2,
-      title: '这是什么东西呢？',
-      desc: '果园里，果树刚剪过枝，大大小小的枝杈随意堆放在果树趟子里。时令尚早，上一年的枯叶和杂草依然铺陈在大地上，新的草芽还在土层里蓄势待发。',
-      imgUrl: '//upload.jianshu.io/users/upload_avatars/17864223/cd083a11-5848-4610-b802-d6fc8941d0ef.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/100/h/100/format/webp'
-    },
-    {
-      id: 3,
-      title: '这是什么东西呢？3',
-      desc: '果园里，果树刚剪过枝，大大小小的枝杈随意堆放在果树趟子里。时令尚早，上一年的枯叶和杂草依然铺陈在大地上，新的草芽还在土层里蓄势待发。',
-      imgUrl: '//upload.jianshu.io/users/upload_avatars/17864223/cd083a11-5848-4610-b802-d6fc8941d0ef.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/100/h/100/format/webp'
-    },
-    {
-      id: 4,
-      title: '这是什么东西呢？',
-      desc: '果园里，果树刚剪过枝，大大小小的枝杈随意堆放在果树趟子里。时令尚早，上一年的枯叶和杂草依然铺陈在大地上，新的草芽还在土层里蓄势待发。',
-      imgUrl: '//upload.jianshu.io/users/upload_avatars/17864223/cd083a11-5848-4610-b802-d6fc8941d0ef.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/100/h/100/format/webp'
-    },
-  ],
-  recommendList: [
-    {
-      id: 1,
-      imgUrl: 'https://upload.jianshu.io/admin_banners/web_images/5055/348f9e194f4062a17f587e2963b7feb0b0a5a982.png?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540'
-    },
-    {
-      id: 2,
-      imgUrl: 'https://upload.jianshu.io/admin_banners/web_images/5055/348f9e194f4062a17f587e2963b7feb0b0a5a982.png?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540'
-    },
-    {
-      id: 3,
-      imgUrl: 'https://upload.jianshu.io/admin_banners/web_images/5055/348f9e194f4062a17f587e2963b7feb0b0a5a982.png?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540'
-    }
-  ],
-  writerList: [
-    {
-      id: 1,
-      imgUrl: 'https://upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
-      title: '卢璐说',
-      desc: '写了2140.5k字 · 34.9k喜欢'
-    },
-    {
-      id: 2,
-      imgUrl: 'https://upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
-      title: '霍比特人',
-      desc: '写了454.9k字 · 2.2k喜欢'
-    },
-    {
-      id: 3,
-      imgUrl: 'https://upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
-      title: '卢璐说',
-      desc: '写了2140.5k字 · 34.9k喜欢'
-    },
-  ]
+  topicList: [],
+  articleList: [],
+  recommendList: [],
+  writerList: []
 })
 
 const reducer = (state = defaultState, action) => {
-  return state
+  switch (action.type) {
+    case INIT_HOME_DATA:
+      return state.merge({
+        topicList: fromJS(action.topicList),
+        articleList: fromJS(action.articleList),
+        recommendList: fromJS(action.recommendList),
+        writerList: fromJS(action.writerList),
+      })
+
+    default:
+      return state
+  }
 }
 
 export default reducer
