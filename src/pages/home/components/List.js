@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { ListItem, ListInfo, LoadMore } from '../style'
 import * as actionCreators from '../store/actionCreators'
-class List extends Component {
+class List extends PureComponent {
   render() {
     const { list, page, getMoreList } = this.props
     return (
@@ -11,17 +12,19 @@ class List extends Component {
           list.map((item, index) => {
             return (
               // <ListItem key={item.get('id')}>
-              <ListItem key={index}>
-                <img
-                  className='list-pic'
-                  src={item.get('imgUrl')}
-                  alt=''
-                />
-                <ListInfo>
-                  <h3 className='title'>{item.get('title')}</h3>
-                  <p className='desc'>{item.get('desc')}</p>
-                </ListInfo>
-              </ListItem>
+              <Link key={index} to={`/detail/${item.get('id')}`}>
+                <ListItem>
+                  <img
+                    className='list-pic'
+                    src={item.get('imgUrl')}
+                    alt=''
+                  />
+                  <ListInfo>
+                    <h3 className='title'>{item.get('title')}</h3>
+                    <p className='desc'>{item.get('desc')}</p>
+                  </ListInfo>
+                </ListItem>
+              </Link>
             )
           })
         }

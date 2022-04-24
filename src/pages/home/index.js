@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Topic from './components/Topic'
 import List from './components/List'
 import Recommend from './components/Recommend'
@@ -14,12 +14,20 @@ import {
   BackTop
 } from './style'
 
-class Home extends Component {
+class Home extends PureComponent {
   
+  // way1 性能优化，只有和此组件的state 变化，才会重新 render
+  // shouldComponentUpdate() {
+
+  // }
+  // way2 使用 PureComponent 底层自己实现了 shouldComponentUpdate 方法，不用自己在每个组件中 手写一个
+  // 建议使用 immutable 配合 PureComponent
+
   // 回到顶部
   handleScrollTop() {
     window.scrollTo(0, 0)
   }
+
 
   render() {
     const { showScroll } = this.props
