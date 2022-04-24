@@ -30,6 +30,20 @@ export const HomeRight = styled.div`
   float: right;
 `
 
+export const BackTop = styled.div`
+  position: fixed;
+  right: 10px;
+  bottom: 30px;
+  width: 60px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  padding: 0 10px;
+  border: 1px solid #dcdcdc;
+  cursor: pointer;
+`
+
 // Topic
 export const TopicWrapper = styled.div`
   padding: 20px 0 10px 0;

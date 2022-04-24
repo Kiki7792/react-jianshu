@@ -38,7 +38,6 @@ const mapState = state => ({
 
 const mapDispatch = (dispatch) => ({
   getMoreList(page) {
-    console.log('vv--', page)
     dispatch(actionCreators.getMoreList(page))
   }
 })
