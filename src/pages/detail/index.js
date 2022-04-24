@@ -1,11 +1,29 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
+import { connect } from 'react-redux'
+import {
+  DetailWrapper,
+  Header,
+  Content
+} from './style'
 
 class Detail extends PureComponent {
   render() {
+    const { title, content } = this.props
     return (
-      <div>detail</div>
+      <Fragment>
+        <DetailWrapper>
+          <Header>{title}</Header>
+          {/* 相当于 vue中 v-html */}
+          <Content dangerouslySetInnerHTML={{__html: content}} />
+        </DetailWrapper>
+      </Fragment>
     )
   }
 }
 
-export default Detail
+const mapState = state => ({
+  title: state.getIn(['detail', 'title']),
+  content: state.getIn(['detail', 'content'])
+})
+
+export default connect(mapState, null)(Detail)
