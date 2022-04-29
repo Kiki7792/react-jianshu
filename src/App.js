@@ -6,6 +6,7 @@ import Header from "./common/header";
 import Home from './pages/home'
 import Login from './pages/login'
 import Detail from './pages/detail'
+import Write from './pages/write'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/login" exact element={<Login />} />
+          <Route path="/write" exact element={<Write />} />
           <Route path="/detail/:id" exact element={<Detail />} />
         </Routes>
       </BrowserRouter>
