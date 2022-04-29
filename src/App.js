@@ -5,7 +5,7 @@ import store from './store';
 import Header from "./common/header";
 import Home from './pages/home'
 import Login from './pages/login'
-import Detail from './pages/detail'
+import Detail from './pages/detail/loadable'
 import Write from './pages/write'
 
 function App() {
