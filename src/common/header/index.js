@@ -10,6 +10,7 @@ import {
   mouseLeave,
   changePage
 } from './store/actionCreators'
+import * as loginActionCreators from '../../pages/login/store/actionCreators'
 import {
   HeaderWrapper,
   Logo,
@@ -71,7 +72,7 @@ class Header extends PureComponent {
   }
 
   render() {
-    const { focused, list, handleInputFocus, handleInputBlur } = this.props
+    const { login, focused, list, handleInputFocus, handleInputBlur, logout } = this.props
     return (
       <HeaderWrapper>
         <Link to="/">
@@ -83,7 +84,9 @@ class Header extends PureComponent {
           <NavItem className='right'>
             <span className='iconfont'>&#xe636;</span>
           </NavItem>
-          <NavItem className='right'>登陆</NavItem>
+          <Link to={login ? '' : '/login'}>
+            <NavItem className='right' onClick={login ? logout : null}>{login ? '退出' : '登陆'}</NavItem>
+          </Link>
           <SearchWrapper>
             <CSSTransition
               in={focused}
@@ -122,6 +125,7 @@ const mapStateToProps = (state) => {
     page: state.getIn(['header', 'page']),
     totalPage: state.getIn(['header', 'totalPage']),
     mouseIn: state.getIn(['header', 'mouseIn']),
+    login: state.getIn(['login', 'login'])
   }
 }
 
@@ -150,6 +154,10 @@ const mapDispatchToProps = (dispatch) => {
       spin.style.transform = `rotate(${originAngle + 360}deg)`
       let currentPage = page < totalPage ? (page + 1) : 1
       dispatch(changePage(currentPage))
+    },
+    logout() {
+      dispatch(loginActionCreators.handleLogout())
+      console.log('logout')
     }
   }
 }
